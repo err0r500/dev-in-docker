@@ -29,5 +29,4 @@ RUN apk --no-cache add font-noto\
     && wget -q "${NNG_URL}" -P /usr/share/fonts \
     && fc-cache -fv
 
-
 ENTRYPOINT ["emacs"]
