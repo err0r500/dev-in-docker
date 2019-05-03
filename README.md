@@ -14,9 +14,9 @@ Nothing mandatory (except Docker)
 ## Currently available languages list
 - golang
 - idris
+- haskell
 
 soon :
-- haskell
 - typescript
 - elm
 
