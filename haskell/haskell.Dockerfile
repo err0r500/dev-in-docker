@@ -5,7 +5,5 @@ FROM alpine:edge as base
 RUN apk update && apk upgrade && apk add ca-certificates && rm -rf /var/cache/apk/*
 RUN apk add bash wget curl git 
 
-FROM base as language-specific
 RUN apk add gcc g++ ghc
-RUN adduser --disabled-password docker-dev
 RUN wget -qO- https://get.haskellstack.org/ | sh
