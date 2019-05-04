@@ -36,7 +36,7 @@ cp ./fldrTmpl ~/projects/myNewIdrisProject
 ```
 
 ```
-mv ~/projects/myNewIdrisProject
+cd ~/projects/myNewIdrisProject
 ```
 
 Create, or clone an existing repo to the `./src` folder
@@ -45,7 +45,9 @@ Create, or clone an existing repo to the `./src` folder
 git clone git@github.com:err0r500/my-idris-project.git ./src
 ```
 
-(Optionnal) Install spacemacs in your container's home
+(Optionnal) Install spacemacs in your container's home. 
+
+(NB:) You'll have to remove the `.emacs.d` folder & the `.emacs` file if you want to run spacemacs after having started emacs once. 
 
 ```
 git clone https://github.com/syl20bnr/spacemacs ./home/.emacs.d
@@ -53,7 +55,7 @@ git clone https://github.com/syl20bnr/spacemacs ./home/.emacs.d
 
 ## Start your dev environnment
 
-NB : Golang needs you to edit the `start.sh` script in order to mount the src folder at the right place in your GOPATH
+Language-specific steps may be needed, check the README files in a language folder.
 
 ```
 ./start.sh
