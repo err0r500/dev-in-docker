@@ -1,67 +1,74 @@
 # Dev in Docker
 
-Run spacemacs-based dev environments in Docker so you don't have to install anything on your system in order to run and develop in a specific language.
+Run spacemacs-based complete dev environments in Docker so you don't have to install anything on your host's system in order to run and develop in a specific language.
 
+- [Dev in Docker](#dev-in-docker)
+    - [Prerequisites](#prerequisites)
+    - [Principle](#principle)
+    - [Final file structure](#final-file-structure)
+    - [General How-to](#general-how-to)
+    - [Language-specific how-to](#language-specific-how-to)
 
-## Dependencies
-Nothing mandatory (except Docker)
+## Prerequisites
+- Docker & docker-compose
+- your host's user should be in the docker group in order to be able to run the docker-compose command (otherwise, your files inside the container will be owned by root)
+- [Quokka](https://github.com/Depado/quokka) must be installed (it's a simple binary)
 
-- I use [x11docker](https://github.com/mviereck/x11docker) as startup script in order to remove the boilerplate while having security best pratices. If you want to use the "Personal workflow" below, be user to have it in your host's PATH.
+## Principle
+- Create a folder that will be mounted as your user's home in a docker container
 
-- Emacs is installed by default on images. I use spacemacs but it's just a personnal choice.
-
-
-## Currently available languages list
-- golang
-- idris
-- haskell
-
-soon :
-- typescript
-- elm
-
-# Personal workflow
-
-## Initial setup for a new language
-
-Build the docker corresponding image. Ex :
-
-`sudo docker build . -f ./idris-1.3.1.Dockerfile -t idris-1.3.1`
-
-## Bootstrap a new project
-Copy the `fldrTmpl` wherever you want your project to be. Ex :
+## Final file structure
+Here's a general file structure, some languages need additional setup
 
 ```
-cp ./fldrTmpl ~/projects/myNewIdrisProject
+your-project-root
+│   Dockerfile
+│   docker-compose.yml
+│
+└───home
+│   │   .spacemacs
+│   │___.ssh/
+│   │   │   yourHostKeys (read-only)
+│   │
+│   └───src
+│       │   yourSourceCodeFiles
+│       │   ...
 ```
 
+## General How-to
+
+NB : this process will be much simplified with [Quokka](https://github.com/Depado/quokka) !
+
+
+On the host system :
+
+- create the main folder for your projet
+- copy inside the Dockerfile & the docker-compose.yml files (so you can edit them afterwards in order to fit your project's specific needs) 
+- create the home folder inside your newly-created folder
+- copy inside base-spacemacs as .spacemacs
+
+Example :
 ```
-cd ~/projects/myNewIdrisProject
+mkdir -p ~/myCoolProject/home
+cp devInDockerPath/Dockerfile ~/myCoolProject/
+cp devInDockerPath/docker-compose.yml ~/myCoolProject/
+cp devInDockerPath/base-spacemacs ~/myCoolProject/home
 ```
+- If you're working on an already existing project, clone anywhere in the home directory
 
-Create, or clone an existing repo to the `./src` folder
-
-```
-git clone git@github.com:err0r500/my-idris-project.git ./src
-```
-
-(Optionnal) Install spacemacs in your container's home. 
-
-(NB:) You'll have to remove the `.emacs.d` folder & the `.emacs` file if you want to run spacemacs after having started emacs once. 
+- mv to your project folder
+- run `UID=${UID} GID=${GID} docker-compose up --build`
+- (in another terminal) attach to the docker container
 
 ```
-git clone https://github.com/syl20bnr/spacemacs ./home/.emacs.d
+docker ps
+docker exec -it <yourDockerContainerID> bash
 ```
 
-## Start your dev environnment
+You can now launch emacs. Spacemacs dependencies should download on first launch. If you've got the vanilla emacs instead, a `.emacs.d` folder may be in your home, remove it and relaunch emacs
 
-Language-specific steps may be needed, check the README files in a language folder.
+## Language-specific how-to
+Use Quokka
 
-```
-./start.sh
-```
-
-- the content of the `./home` folder will be mounted as the `~` of your user
-- the content of the `src` folder will be mounted as the `/src` folder (except in golang)
-
-
+## TODO
+add a make file for the docker-compose

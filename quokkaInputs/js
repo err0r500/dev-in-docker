@@ -1,0 +1,5 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN dnf install nodejs -y
+                         RUN npm install -g tern 
+dotprofile: false

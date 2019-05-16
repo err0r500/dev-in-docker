@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USER: ${USER}
+        UID: ${UID}
+    environment:
+      - TERM=${TERM} # keep host's TERM, optional 
+    volumes:
+      - ./home:/home/${USER}:Z # Z is because of SELinux
+      - ~/.ssh:/home/${USER}/.ssh:ro,Z # read-only 
+    ports:
+      - 3000:3000

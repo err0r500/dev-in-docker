@@ -1,0 +1,20 @@
+name: "dev-in-deocker templating"
+version: "0.1.0"
+description: "this template will bootstrap a base structure for your project"
+delimiters: ["{{", "}}"]
+variables:
+  dockerfile:
+    confirm: false
+    variables:
+      languageDeps:
+        required: false
+  dotprofile:
+    confirm: false
+    variables:
+      content:
+        required: false
+after:
+  - cmd: "git clone https://github.com/syl20bnr/spacemacs ./home/.emacs.d"
+    failure: stop
+    echo: "spacemacs initialized"
+    if: true
