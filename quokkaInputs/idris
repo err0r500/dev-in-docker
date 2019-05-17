@@ -1,0 +1,10 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN dnf install idris -y
+dotprofile: false
+runMeFirst: false
+spacemacs: true
+spacemacs_conflayers: |
+                      idris
+                      auto-completion
+                      syntax-checking

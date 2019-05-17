@@ -13,8 +13,19 @@ variables:
     variables:
       content:
         required: false
-after:
-  - cmd: "git clone https://github.com/syl20bnr/spacemacs ./home/.emacs.d"
-    failure: stop
-    echo: "spacemacs initialized"
-    if: true
+  runMeFirst:
+    confirm: false
+    variables:
+      content:
+        required: false
+  spacemacs:
+    confirm: false
+    variables:
+      conflayers:
+        required: false
+      funcs:
+        required: false
+      confinit:
+        required: false
+      confuser:
+        required: false

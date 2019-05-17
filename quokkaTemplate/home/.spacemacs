@@ -1,27 +1,18 @@
+{{ .spacemacs_funcs }}
+
 (defun dotspacemacs/layers ()
   (setq-default
-   dotspacemacs-distribution 'spacemacs
+   dotspacemacs-distribution 'spacemacs-base
    dotspacemacs-enable-lazy-installation 'unused
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
-     (markdown :variables markdown-live-preview-engine 'vmd)
-     yaml
      helm
-     ;; auto-completion
-     ;; better-defaults
      emacs-lisp
-     ;; git
-     ;; markdown
-     ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
-     
+
+     {{ .spacemacs_conflayers }} 
+
      )
    dotspacemacs-additional-packages '(
                                       multi-term
@@ -87,7 +78,7 @@
    dotspacemacs-show-transient-state-color-guide t
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling t
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'relative
    dotspacemacs-folding-method 'evil
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
@@ -98,7 +89,9 @@
    dotspacemacs-whitespace-cleanup nil
    ))
 
-(defun dotspacemacs/user-init ())
+(defun dotspacemacs/user-init ()
+  {{ .spacemacs_confinit }}
+  )
 
 (defun dotspacemacs/user-config ()
   ;; vim-like window navigation 
@@ -107,6 +100,8 @@
   (global-set-key (kbd "C-k") 'evil-window-up)
   (global-set-key (kbd "C-l") 'evil-window-right)
   (global-set-key (kbd "C-w") 'delete-window)
+
+  {{ .spacemacs_confuser }}
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

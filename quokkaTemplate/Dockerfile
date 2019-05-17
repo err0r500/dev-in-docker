@@ -10,10 +10,10 @@ WORKDIR /home/${USER}
 RUN dnf update -y
 RUN dnf install git curl wget tmux emacs ripgrep adobe-source-code-pro-fonts -y
 
-# project-specific setup
+# language-specific setup
 {{ .dockerfile_languageDeps }}
 
 # start a dummy process to keep the container alive
 USER ${USER}
 ENV HOME /home/${USER}
-CMD tail -f /dev/null
+CMD sleep 9999999999999

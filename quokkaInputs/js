@@ -3,3 +3,11 @@ dockerfile_languageDeps: |
                          RUN dnf install nodejs -y
                          RUN npm install -g tern 
 dotprofile: false
+runMeFirst: true
+runMeFirst_content: |
+                    echo "bla"
+spacemacs: true
+spacemacs_conflayers: |
+                      javascript
+                      auto-completion
+                      syntax-checking

@@ -1,0 +1,38 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN dnf install golang -y
+                         RUN mkdir /usr/local/go
+                         ENV GOPATH=/usr/local/go
+                         RUN go get -u github.com/mdempsky/gocode
+                         RUN go get -u github.com/rogpeppe/godef 
+                         RUN go get -u golang.org/x/tools/cmd/guru  
+                         RUN go get -u golang.org/x/tools/cmd/gorename  
+                         RUN go get -u golang.org/x/tools/cmd/goimports  
+                         RUN go get -u github.com/zmb3/gogetdoc  
+                         RUN go get -u github.com/cweill/gotests/...  
+                         RUN go get -u github.com/haya14busa/gopkgs/cmd/gopkgs  
+                         RUN go get -u github.com/davidrjenni/reftools/cmd/fillstruct  
+                         RUN go get -u github.com/josharian/impl
+dotprofile: true
+dotprofile_content : |
+                   PATH=~/go/bin:/usr/local/go/bin:$PATH
+                   GOPATH=~/go:/usr/local/go
+
+runMeFirst: true
+runMeFirst_content:
+
+spacemacs: true
+spacemacs_conflayers: |
+                      (go :variables godoc-at-point-function 'godoc-gogetdoc)
+                      auto-completion
+                      syntax-checking
+spacemacs_funcs: |
+                 (defun go-install ()
+                        (when (eq major-mode 'go-mode)
+                              (shell-command-to-string "go install ./..." )))
+
+spacemacs_confinit: 
+spacemacs_confuser: |
+                    (setq go-format-before-save t)
+                    (setq gofmt-command "goimports")
+                    (add-hook 'after-save-hook #'go-install)

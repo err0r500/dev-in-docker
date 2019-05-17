@@ -4,7 +4,6 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
       args:
         USER: ${USER}
         UID: ${UID}
