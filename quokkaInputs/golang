@@ -3,23 +3,24 @@ dockerfile_languageDeps: |
                          RUN dnf install golang -y
                          RUN mkdir /usr/local/go
                          ENV GOPATH=/usr/local/go
-                         RUN go get -u github.com/mdempsky/gocode
-                         RUN go get -u github.com/rogpeppe/godef 
-                         RUN go get -u golang.org/x/tools/cmd/guru  
-                         RUN go get -u golang.org/x/tools/cmd/gorename  
-                         RUN go get -u golang.org/x/tools/cmd/goimports  
-                         RUN go get -u github.com/zmb3/gogetdoc  
-                         RUN go get -u github.com/cweill/gotests/...  
-                         RUN go get -u github.com/haya14busa/gopkgs/cmd/gopkgs  
-                         RUN go get -u github.com/davidrjenni/reftools/cmd/fillstruct  
-                         RUN go get -u github.com/josharian/impl
+                         RUN go get -u github.com/mdempsky/gocode \
+                         && go get -u github.com/rogpeppe/godef \ 
+                         && go get -u golang.org/x/tools/cmd/guru \  
+                         && go get -u golang.org/x/tools/cmd/gorename \  
+                         && go get -u golang.org/x/tools/cmd/goimports \ 
+                         && go get -u github.com/zmb3/gogetdoc \
+                         && go get -u github.com/cweill/gotests/... \  
+                         && go get -u github.com/haya14busa/gopkgs/cmd/gopkgs \  
+                         && go get -u github.com/davidrjenni/reftools/cmd/fillstruct \  
+                         && go get -u github.com/josharian/impl
 dotprofile: true
 dotprofile_content : |
                    PATH=~/go/bin:/usr/local/go/bin:$PATH
                    GOPATH=~/go:/usr/local/go
 
 runMeFirst: true
-runMeFirst_content:
+runMeFirst_content: |
+                    mkdir -p $DIR/home/go/bin
 
 spacemacs: true
 spacemacs_conflayers: |
