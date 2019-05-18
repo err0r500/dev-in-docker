@@ -7,4 +7,6 @@ spacemacs: true
 spacemacs_conflayers: |
                       idris
                       auto-completion
-                      syntax-checking
+spacemacs_funcs: ""
+spacemacs_confinit: ""
+spacemacs_confuser: ""

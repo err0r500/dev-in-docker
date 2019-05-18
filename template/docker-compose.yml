@@ -7,6 +7,7 @@ services:
       args:
         USER: ${USER}
         USER_ID: ${USER_ID}
+    container_name: app
     environment:
       - TERM=${TERM} # keep host's TERM, optional 
     volumes:
