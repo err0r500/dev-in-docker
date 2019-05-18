@@ -39,13 +39,12 @@ emacs
 
 ### Just for the Idris example
 
-NB the keybindings are notated between <>
-```
-<Spc-b-s> (you enter the __B__uffer called __S__cratch)
-MyFunc : Bool -> Int
-<Spc-f-s> (you want this __F__ile to be __S__aved)
-foo.idr
-<Ctrl-c Ctrl-l> (you load the file with Idris, you should see a cool animation and the syntactic coloration)
-```
+NB : the spacemacs keybindings are notated between <>
+
+- `<Spc-b-s>` (you enter the **B**uffer called **S**cratch
+- `MyFunc : Bool -> Int`
+- `<Spc-f-s>` (you want this **F**ile to be **S**aved)
+- `foo.idr`
+- `<Ctrl-c Ctrl-l>` (you **L**oad the file with Idris, you should see a cool animation and the syntactic coloration)
 
 Congratulations ! Next step : [the idris tutorial](http://docs.idris-lang.org/en/latest/tutorial/index.html#tutorial-index))
