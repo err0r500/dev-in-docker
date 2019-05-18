@@ -2,8 +2,8 @@ FROM fedora:30
 
 # set user's home
 ARG USER
-ARG UID
-RUN useradd -m ${USER} -u ${UID}
+ARG USER_ID
+RUN useradd -m ${USER} -u ${USER_ID}
 WORKDIR /home/${USER}
 
 # system setup + emacs (add your common dev tools here)

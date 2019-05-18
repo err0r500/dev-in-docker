@@ -1,0 +1,27 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN dnf install ncurses-devel -y
+                         RUN wget -qO- https://get.haskellstack.org/ | sh
+
+dotprofile: true
+dotprofile_content : |
+                     export PATH=$PATH:~/.local/bin
+                     if [ -e ~/keep ]; then
+                     echo " == The main tools are installed on first run, it may be long == "
+                     echo
+                     stack install apply-refact hlint stylish-haskell hasktags hoogle hindent
+                     rm ~/keep
+                     fi
+
+runMeFirst: true
+runMeFirst_content: ""
+
+spacemacs: true
+spacemacs_conflayers: |
+                      (haskell :variables haskell-enable-hindent-style "johan-tibell")
+                      (auto-completion
+                        (haskell :variables haskell-completion-backend 'intero))
+                      syntax-checking
+spacemacs_funcs: ""
+spacemacs_confinit: ""
+spacemacs_confuser: (add-hook 'haskell-mode-hook 'intero-mode)

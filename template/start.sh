@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export UID="$(id -u)"
+export USER_ID="$(id -u)"
 export GID="$(id -g)"
 
 # get the directory of this script not to be dependant upon where it's invoked from

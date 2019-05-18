@@ -6,7 +6,7 @@ services:
       context: .
       args:
         USER: ${USER}
-        UID: ${UID}
+        USER_ID: ${USER_ID}
     environment:
       - TERM=${TERM} # keep host's TERM, optional 
     volumes:
