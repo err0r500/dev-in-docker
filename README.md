@@ -1,74 +1,51 @@
 # Dev in Docker
 
-Run spacemacs-based complete dev environments in Docker so you don't have to install anything on your host's system in order to run and develop in a specific language.
-
-- [Dev in Docker](#dev-in-docker)
-    - [Prerequisites](#prerequisites)
-    - [Principle](#principle)
-    - [Final file structure](#final-file-structure)
-    - [General How-to](#general-how-to)
-    - [Language-specific how-to](#language-specific-how-to)
+Try a new language without installing anything (language-specific) on your computer.
+The goal of these templates is to provide the best first experience in a new language so it provides :
+- a sandboxed environment (docker)
+- an IDE-like experience (spacemacs)
+- persistence of the files (docker volume)
+- evolve as you want : once the template is created and you launched emacs once, you can modify the Dockerfile and everything else.
 
 ## Prerequisites
 - Docker & docker-compose
 - your host's user should be in the docker group in order to be able to run the docker-compose command (otherwise, your files inside the container will be owned by root)
 - [Quokka](https://github.com/Depado/quokka) must be installed (it's a simple binary)
 
-## Principle
-- Create a folder that will be mounted as your user's home in a docker container
+## How-to
 
-## Final file structure
-Here's a general file structure, some languages need additional setup
+### First time only 
 
+Create your project, using Idris as an example (you don't know Idris ? Let's give it a try ! ) 
 ```
-your-project-root
-│   Dockerfile
-│   docker-compose.yml
-│
-└───home
-│   │   .spacemacs
-│   │___.ssh/
-│   │   │   yourHostKeys (read-only)
-│   │
-│   └───src
-│       │   yourSourceCodeFiles
-│       │   ...
+git clone git@github.com:err0r500/dev-in-docker.git
+cd ./dev-in-docker
+qk ./template ~/my-idris-experiment -i ./languages/idris
+cd ~/my-idris-experiment
+chmod +x ./start.sh
+```
+### Rest of the time
+
+Start the docker container 
+```
+./start.sh
 ```
 
-## General How-to
-
-NB : this process will be much simplified with [Quokka](https://github.com/Depado/quokka) !
-
-
-On the host system :
-
-- create the main folder for your projet
-- copy inside the Dockerfile & the docker-compose.yml files (so you can edit them afterwards in order to fit your project's specific needs) 
-- create the home folder inside your newly-created folder
-- copy inside base-spacemacs as .spacemacs
-
-Example :
+Play with your new language (in another shell)
 ```
-mkdir -p ~/myCoolProject/home
-cp devInDockerPath/Dockerfile ~/myCoolProject/
-cp devInDockerPath/docker-compose.yml ~/myCoolProject/
-cp devInDockerPath/base-spacemacs ~/myCoolProject/home
-```
-- If you're working on an already existing project, clone anywhere in the home directory
-
-- mv to your project folder
-- run `UID=${UID} GID=${GID} docker-compose up --build`
-- (in another terminal) attach to the docker container
-
-```
-docker ps
-docker exec -it <yourDockerContainerID> bash
+docker exec -it app bash
+emacs
 ```
 
-You can now launch emacs. Spacemacs dependencies should download on first launch. If you've got the vanilla emacs instead, a `.emacs.d` folder may be in your home, remove it and relaunch emacs
+### Just for the Idris example
 
-## Language-specific how-to
-Use Quokka
+NB the keybindings are notated between <>
+```
+<Spc-b-s> (you enter the __B__uffer called __S__cratch)
+MyFunc : Bool -> Int
+<Spc-f-s> (you want this __F__ile to be __S__aved)
+foo.idr
+<Ctrl-c Ctrl-l> (you load the file with Idris, you should see a cool animation and the syntactic coloration)
+```
 
-## TODO
-add a make file for the docker-compose
+Congratulations ! Next step : [the idris tutorial](http://docs.idris-lang.org/en/latest/tutorial/index.html#tutorial-index))
