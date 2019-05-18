@@ -20,7 +20,8 @@ dotprofile_content : |
 
 runMeFirst: true
 runMeFirst_content: |
-                    mkdir -p $DIR/home/go/bin
+                    mkdir -p $DIR/home/go/bin \
+                    && mkdir -p $DIR/home/go/src
 
 spacemacs: true
 spacemacs_conflayers: |
@@ -30,7 +31,7 @@ spacemacs_conflayers: |
 spacemacs_funcs: |
                  (defun go-install ()
                         (when (eq major-mode 'go-mode)
-                              (shell-command-to-string "go install ./..." )))
+                              (shell-command-to-string "go build -i" )))
 
 spacemacs_confinit: 
 spacemacs_confuser: |
