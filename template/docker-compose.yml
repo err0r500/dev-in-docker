@@ -13,5 +13,3 @@ services:
     volumes:
       - ./home:/home/${USER}:Z # Z is because of SELinux
       - ~/.ssh:/home/${USER}/.ssh:ro,Z # read-only 
-    ports:
-      - 3000:3000
