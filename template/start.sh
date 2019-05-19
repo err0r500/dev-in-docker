@@ -13,4 +13,4 @@ if [ ! -d "$DIR/home/.emacs.d" ]; then
     {{ .runMeFirst_content }}
 fi
 
-docker-compose up --build --rm
+docker-compose up --build

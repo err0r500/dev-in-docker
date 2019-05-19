@@ -3,8 +3,8 @@ dockerfile_languageDeps: |
                          RUN dnf install ncurses-devel -y
                          RUN wget -qO- https://get.haskellstack.org/ | sh
 
-dotprofile: true
-dotprofile_content : |
+dotbashrc: true
+dotbashrc_content : |
                      export PATH=$PATH:~/.local/bin
                      if [ -e ~/keep ]; then
                      echo " == The main tools are installed on first run, it may be long == "

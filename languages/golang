@@ -13,8 +13,8 @@ dockerfile_languageDeps: |
                          && go get -u github.com/haya14busa/gopkgs/cmd/gopkgs \  
                          && go get -u github.com/davidrjenni/reftools/cmd/fillstruct \  
                          && go get -u github.com/josharian/impl
-dotprofile: true
-dotprofile_content : |
+dotbashrc: true
+dotbashrc_content : |
                    PATH=~/go/bin:/usr/local/go/bin:$PATH
                    GOPATH=~/go:/usr/local/go
 

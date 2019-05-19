@@ -8,7 +8,7 @@ variables:
     variables:
       languageDeps:
         required: false
-  dotprofile:
+  dotbashrc:
     confirm: false
     variables:
       content:

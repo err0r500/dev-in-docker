@@ -1,4 +1,4 @@
 ---
-if: dotprofile
+if: dotbashrc
 ---
-{{.dotprofile_content}}
+{{.dotbashrc_content}}
