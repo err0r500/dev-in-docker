@@ -1,0 +1,14 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN dnf install elixir -y
+dotprofile: false
+runMeFirst: false
+spacemacs: true
+spacemacs_conflayers: |
+                      elixir
+                      alchemist
+                      syntax-checking
+                      auto-completion
+spacemacs_funcs: ""
+spacemacs_confinit: ""
+spacemacs_confuser: ""
