@@ -1,11 +1,14 @@
 # Dev in Docker
 
-Try a new language without installing anything (language-specific) on your computer.
-The goal of these templates is to provide the best first experience in a new language so it provides :
+Try a new language without installing anything language-specific on your computer.
+
+The goal of these templates is to provide the best first experience in a new language while letting the ability to be tweaked as you want (ie. you can safely use it as a starting point for a reeal project ).
+
+It provides :
 - a sandboxed environment (docker)
 - an IDE-like experience (spacemacs)
 - persistence of the files (docker volume)
-- evolve as you want : once the template is created and you launched emacs once, you can modify the Dockerfile and everything else.
+- evolve as you want : this script simply creates the boilerplate you'll need first. You can edit everything afterwards.
 
 ## Prerequisites
 - Docker & docker-compose
@@ -14,9 +17,9 @@ The goal of these templates is to provide the best first experience in a new lan
 
 ## How-to
 
-### First time only 
+### First time only (per project)
 
-Create your project, using Idris as an example (you don't know Idris ? Let's give it a try ! ) 
+Let's bootstrap your new project, using Idris as an example (you don't know [Idris](https://www.idris-lang.org/) ? Let's give it a try ! ) 
 ```
 git clone git@github.com:err0r500/dev-in-docker.git
 cd ./dev-in-docker
@@ -26,18 +29,18 @@ chmod +x ./start.sh
 ```
 ### Rest of the time
 
-Start the docker container 
+Start the docker container
 ```
 ./start.sh
 ```
 
 Play with your new language (in another shell)
 ```
-docker exec -it app bash
+docker exec -it <CONTAINER_ID> bash
 emacs
 ```
 
-### Just for the Idris example
+### Just for testing the Idris example
 
 NB : the spacemacs keybindings are notated between <>
 
