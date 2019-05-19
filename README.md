@@ -17,12 +17,16 @@ It provides :
 
 ## How-to
 
-### First time only (per project)
-
-Let's bootstrap your new project, using Idris as an example (you don't know [Idris](https://www.idris-lang.org/) ? Let's give it a try ! ) 
+### First time ever
 ```
 git clone git@github.com:err0r500/dev-in-docker.git
 cd ./dev-in-docker
+```
+
+### First time (per project)
+
+Let's bootstrap your new project, using Idris as an example (you don't know [Idris](https://www.idris-lang.org/) ? Let's give it a try ! ) 
+```
 qk ./template ~/my-idris-experiment -i ./languages/idris
 cd ~/my-idris-experiment
 chmod +x ./start.sh
