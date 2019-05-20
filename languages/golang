@@ -33,7 +33,7 @@ spacemacs_funcs: |
                         (when (eq major-mode 'go-mode)
                               (shell-command-to-string "go build -i" )))
 
-spacemacs_confinit: 
+spacemacs_confinit: ""
 spacemacs_confuser: |
                     (setq go-format-before-save t)
                     (setq gofmt-command "goimports")

@@ -8,7 +8,7 @@ WORKDIR /home/${USER}
 
 # system setup + emacs (add your common dev tools here)
 RUN dnf update -y
-RUN dnf install git curl wget tmux emacs ripgrep adobe-source-code-pro-fonts -y
+RUN dnf install git curl wget tmux make emacs ripgrep adobe-source-code-pro-fonts -y
 
 # language-specific setup
 {{ .dockerfile_languageDeps }}
