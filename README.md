@@ -13,11 +13,13 @@ It provides :
 ## Prerequisites
 - Docker & docker-compose
 - your host's user should be in the docker group in order to be able to run the docker-compose command (otherwise, your files inside the container will be owned by root)
-- [Quokka](https://github.com/Depado/quokka) must be installed (it's a simple binary)
+- [Quokka](https://github.com/Depado/quokka/releases) must be installed (it's a simple binary that you should put in your PATH)
 
 ## How-to
 
 ### First time ever
+(assuming you have already put quokka in your path)
+
 ```
 git clone git@github.com:err0r500/dev-in-docker.git
 cd ./dev-in-docker
