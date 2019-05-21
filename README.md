@@ -15,10 +15,18 @@ It provides :
 - your host's user should be in the docker group in order to be able to run the docker-compose command (otherwise, your files inside the container will be owned by root)
 - [Quokka](https://github.com/Depado/quokka/releases) must be installed (it's a simple binary that you should put in your PATH)
 
+### Checklist : 
+Each of the following commands should return no error :
+
+- `docker ps` ie. your docker service is running
+- `docker pull fedora:30` ie. you're able to pull an image from docker hub.
+- `qk version` should be at least 1.3.1 if you're on windows
+
+You must also be able to mount your project's directory (you'll see when running the start command)
+
 ## How-to
 
 ### First time ever
-(assuming you have already put quokka in your path)
 
 ```
 git clone git@github.com:err0r500/dev-in-docker.git
@@ -34,6 +42,7 @@ cd ~/my-idris-experiment
 chmod +x ./start.sh
 ```
 ### Rest of the time
+
 
 Start the docker container
 ```
