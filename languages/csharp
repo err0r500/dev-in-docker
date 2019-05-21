@@ -1,0 +1,25 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
+                         RUN rpm --import "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF" # mono
+                         RUN curl https://download.mono-project.com/repo/centos8-stable.repo | tee /etc/yum.repos.d/mono-centos8-stable.repo # mono
+                         RUN dnf install wget -y && wget -q https://packages.microsoft.com/config/fedora/27/prod.repo
+                         RUN mv prod.repo /etc/yum.repos.d/microsoft-prod.repo
+                         RUN chown root:root /etc/yum.repos.d/microsoft-prod.repo
+                         RUN dnf update -y
+                         RUN dnf install dotnet-sdk-2.2 aspnetcore-runtime-2.2 mono-devel -y
+
+dotbashrc: true
+dotbashrc_content : |
+                   export MSBuildSDKsPath=/usr/share/dotnet/sdk/$(dotnet --version)/Sdks
+
+runMeFirst: false
+spacemacs: true
+spacemacs_conflayers: |
+                      (go :variables godoc-at-point-function 'godoc-gogetdoc)
+                      auto-completion
+                      syntax-checking
+spacemacs_funcs: ""
+spacemacs_addpackages: "" 
+spacemacs_confinit: ""
+spacemacs_confuser: ""
