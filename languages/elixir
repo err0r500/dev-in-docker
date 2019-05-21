@@ -9,6 +9,7 @@ spacemacs_conflayers: |
                       alchemist
                       syntax-checking
                       auto-completion
+spacemacs_addpackages: "" 
 spacemacs_funcs: ""
 spacemacs_confinit: ""
 spacemacs_confuser: ""

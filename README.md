@@ -2,13 +2,13 @@
 
 Try a new language without installing anything language-specific on your computer.
 
-The goal of these templates is to provide the best first experience in a new language while letting the ability to be tweaked as you want (ie. you can safely use it as a starting point for a reeal project ).
+The goal of these templates is to provide you the best first experience in a new language while letting the ability to be tweaked as you want (ie. you can safely use it as a starting point for a reeal project ).
 
 It provides :
 - a sandboxed environment (docker)
 - an IDE-like experience (spacemacs)
 - persistence of the files (docker volume)
-- evolve as you want : this script simply creates the boilerplate you'll need first. You can edit everything afterwards.
+- evolve as you want : this script simply bootstraps everything you'll need at first but you're then free to tweak everything !
 
 ## Prerequisites
 - Docker & docker-compose

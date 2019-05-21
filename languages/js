@@ -3,11 +3,22 @@ dockerfile_languageDeps: |
                          RUN dnf install nodejs -y
                          RUN npm install -g tern 
 dotbashrc: false
-runMeFirst: true
-runMeFirst_content: |
-                    echo "bla"
+runMeFirst: false
 spacemacs: true
 spacemacs_conflayers: |
                       javascript
                       auto-completion
                       syntax-checking
+
+spacemacs_addpackages: "rjsx-mode" 
+spacemacs_funcs: ""
+spacemacs_confinit: ""
+spacemacs_confuser: |
+                    (setq js2-strict-missing-semi-warning nil)
+                    (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
+                    (add-hook 'rjsx-mode-hook 'flycheck-mode)
+                    (setq-default flycheck-disabled-checkers
+                                  (append flycheck-disabled-checkers
+                                          '(javascript-jshint)))
+                    (flycheck-add-mode 'javascript-eslint 'rjsx-mode)
+                    

@@ -23,6 +23,8 @@ variables:
     variables:
       conflayers:
         required: false
+      addpackages:
+        required: false
       funcs:
         required: false
       confinit:

@@ -22,6 +22,7 @@ spacemacs_conflayers: |
                       (auto-completion
                         (haskell :variables haskell-completion-backend 'intero))
                       syntax-checking
+spacemacs_addpackages: "" 
 spacemacs_funcs: ""
 spacemacs_confinit: ""
 spacemacs_confuser: (add-hook 'haskell-mode-hook 'intero-mode)

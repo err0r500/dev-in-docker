@@ -11,12 +11,13 @@
      helm
      emacs-lisp
 
-     {{ .spacemacs_conflayers }} 
+     {{ .spacemacs_conflayers }}
 
      )
    dotspacemacs-additional-packages '(
                                       multi-term
                                       zenburn-theme
+                                      {{ .spacemacs_addpackages }}
    )
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
