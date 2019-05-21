@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export USER_NAME="$(whoami)"
 export USER_ID="$(id -u)"
 export GID="$(id -g)"
 
