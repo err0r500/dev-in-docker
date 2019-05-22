@@ -16,4 +16,6 @@ RUN dnf install git curl wget tmux make emacs ripgrep adobe-source-code-pro-font
 # start a dummy process to keep the container alive
 USER ${USER_NAME}
 ENV HOME /home/${USER_NAME}
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 CMD sleep 9999999999999
