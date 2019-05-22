@@ -5,9 +5,10 @@ dockerfile_languageDeps: |
                          RUN curl https://download.mono-project.com/repo/centos8-stable.repo | tee /etc/yum.repos.d/mono-centos8-stable.repo # mono
                          RUN dnf install wget -y && wget -q https://packages.microsoft.com/config/fedora/27/prod.repo
                          RUN mv prod.repo /etc/yum.repos.d/microsoft-prod.repo
-                         RUN chown root:root /etc/yum.repos.d/microsoft-prod.repo
+                         # RUN chown root:root /etc/yum.repos.d/microsoft-prod.repo
                          RUN dnf update -y
                          RUN dnf install dotnet-sdk-2.2 aspnetcore-runtime-2.2 mono-devel -y
+                         RUN mkdir /usr/local/bin/omniserver && wget -c https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.32.19/omnisharp-linux-x64.tar.gz -O - | tar -xz -C /usr/local/bin/omniserver && chown -R ${USER_NAME}:${USER_NAME} /usr/local/bin/omniserver
 
 dotbashrc: true
 dotbashrc_content : |
@@ -16,10 +17,10 @@ dotbashrc_content : |
 runMeFirst: false
 spacemacs: true
 spacemacs_conflayers: |
-                      (go :variables godoc-at-point-function 'godoc-gogetdoc)
+                      csharp
                       auto-completion
                       syntax-checking
 spacemacs_funcs: ""
 spacemacs_addpackages: "" 
 spacemacs_confinit: ""
-spacemacs_confuser: ""
+spacemacs_confuser: (setq omnisharp-server-executable-path "/usr/local/bin/omniserver/run") 
