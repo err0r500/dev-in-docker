@@ -1,7 +1,10 @@
 dockerfile: true
 dockerfile_languageDeps: |
                          RUN dnf install elixir -y
-dotbashrc: false
+
+dotbashrc: true
+dotbashrc_content: "" 
+
 runMeFirst: false
 spacemacs: true
 spacemacs_conflayers: |
