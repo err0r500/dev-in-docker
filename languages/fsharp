@@ -1,0 +1,21 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
+                         RUN dnf install wget -y && wget -q -O /etc/yum.repos.d/microsoft-prod.repo https://packages.microsoft.com/config/fedora/30/prod.repo
+                         RUN dnf install dotnet-sdk-3.0 -y
+                         RUN dnf install mono-devel -y
+
+
+dotbashrc: true 
+dotbashrc_content: "" 
+
+runMeFirst: false
+spacemacs: true
+spacemacs_conflayers: |
+                      fsharp
+                      auto-completion
+                      syntax-checking
+spacemacs_funcs: ""
+spacemacs_addpackages: "" 
+spacemacs_confinit: ""
+spacemacs_confuser: ""
