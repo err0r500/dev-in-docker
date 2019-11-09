@@ -2,20 +2,17 @@
 
 (defun dotspacemacs/layers ()
   (setq-default
-   dotspacemacs-distribution 'spacemacs-base
+   dotspacemacs-distribution 'spacemacs
    dotspacemacs-enable-lazy-installation 'unused
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
-   dotspacemacs-configuration-layers
-   '(
+   dotspacemacs-configuration-layers '(
      helm
      emacs-lisp
-
+     neotree
      {{ .spacemacs_conflayers }}
-
-     )
+   )
    dotspacemacs-additional-packages '(
-                                      multi-term
                                       zenburn-theme
                                       {{ .spacemacs_addpackages }}
    )
@@ -100,7 +97,8 @@
   (global-set-key (kbd "C-j") 'evil-window-down)
   (global-set-key (kbd "C-k") 'evil-window-up)
   (global-set-key (kbd "C-l") 'evil-window-right)
-  (global-set-key (kbd "C-w") 'delete-window)
+
+  (setq neo-theme 'ascii)
 
   {{ .spacemacs_confuser }}
 )
