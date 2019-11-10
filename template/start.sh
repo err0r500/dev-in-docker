@@ -12,9 +12,9 @@ if [ ! -d "$DIR/home/.emacs.d" ]; then
 fi
 
 if id -nG "$USER" | grep -qw "docker"; then
-    USER_NAME=${USER} USER_ID=${UID} docker-compose up --build
+    USER_NAME=${USER} USER_ID=${UID} docker-compose up -d --build
 elif id -nG "$USER" | grep -qw "wheel"; then
-    sudo USER_NAME=${USER} USER_ID=${UID} docker-compose up --build
+    sudo USER_NAME=${USER} USER_ID=${UID} docker-compose up -d --build
 else
     echo "not in docker nor wheel group... can't start docker-compose"
 fi
