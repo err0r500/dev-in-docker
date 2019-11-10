@@ -1,4 +1,4 @@
-name: "dev-in-deocker templating"
+name: "dev-in-docker templating"
 version: "0.1.0"
 description: "this template will bootstrap a base structure for your project"
 delimiters: ["{{", "}}"]

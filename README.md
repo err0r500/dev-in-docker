@@ -2,7 +2,7 @@
 
 Try a new language without installing anything language-specific on your computer.
 
-The goal of these templates is to provide you the best first experience in a new language while letting the ability to be tweaked as you want (ie. you can safely use it as a starting point for a reeal project ).
+The goal of these templates is to provide you the best first experience in a new language while letting the ability to be tweaked as you want (ie. you can safely use it as a starting point for a real project ).
 
 It provides :
 - a sandboxed environment (docker)
