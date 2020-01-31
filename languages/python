@@ -1,0 +1,33 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN dnf install which gcc python-devel -y
+
+runMeFirst: false
+
+dotbashrc: true
+dotbashrc_content : |
+                    PATH=~/.local/bin:$PATH
+                    if [ -f "./keep" ]; then
+                        mkdir ~/.virtualenvs
+                        pip3 install --user virtualenvwrapper flake8 yapf isort python-language-server[all] ptvsd
+                        rm ./keep
+                    fi
+                    source ~/.local/bin/virtualenvwrapper.sh
+                    export WORKON_HOME=$HOME/.virtualenvs
+
+
+runMeFirst: false
+
+spacemacs: true
+spacemacs_conflayers: |
+                      dap
+                      (python :variables
+                         python-backend 'lsp
+                         python-format-on-save t)
+                      auto-completion
+                      syntax-checking
+
+spacemacs_addpackages: dap-mode
+spacemacs_funcs: ""
+spacemacs_confinit: ""
+spacemacs_confuser: ""
