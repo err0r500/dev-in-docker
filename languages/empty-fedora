@@ -1,0 +1,12 @@
+dockerfile: true
+dockerfile_languageDeps: "" 
+dotbashrc: true 
+dotbashrc_content: "" 
+runMeFirst: false
+spacemacs: true
+spacemacs_conflayers: ""
+spacemacs_funcs: ""
+spacemacs_addpackages: "" 
+spacemacs_confinit: ""
+spacemacs_confuser: ""
+dockerCompose: false
