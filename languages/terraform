@@ -1,0 +1,26 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN wget -O ./terraform.zip https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip
+                         RUN dnf install unzip -y && unzip ./terraform.zip -d /usr/bin/ && rm ./terraform.zip
+                          
+dotbashrc: true
+dotbashrc_content: "" 
+
+runMeFirst: false
+
+spacemacs: true
+spacemacs_conflayers: ""
+spacemacs_addpackages: |
+                       terraform-mode
+                       terraform-doc
+                       company-terraform
+spacemacs_funcs: ""
+spacemacs_confinit: ""
+spacemacs_confuser: |
+                    (global-company-mode t)
+                    (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
+                    (add-hook 'terraform-mode-hook #'company-terraform-init)
+                    
+dockerCompose: true
+dockerCompose_volumes: |
+                       - /home/${USER_NAME}/.aws:/home/${USER_NAME}/.aws:ro,Z
