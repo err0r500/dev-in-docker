@@ -31,3 +31,5 @@ spacemacs_addpackages: dap-mode
 spacemacs_funcs: ""
 spacemacs_confinit: ""
 spacemacs_confuser: ""
+
+dockerCompose: false

@@ -12,3 +12,4 @@ services:
     volumes:
       - ./home:/home/${USER_NAME}:Z # Z is because of SELinux
       - /home/${USER_NAME}/.ssh:/home/${USER_NAME}/.ssh:ro,Z # read-only 
+      {{ .dockerCompose_volumes }}

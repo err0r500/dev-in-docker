@@ -23,3 +23,5 @@ spacemacs_confuser: |
                                           '(javascript-jshint)))
                     (flycheck-add-mode 'javascript-eslint 'rjsx-mode)
                     
+
+dockerCompose: false

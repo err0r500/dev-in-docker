@@ -16,3 +16,5 @@ spacemacs_addpackages: ""
 spacemacs_funcs: ""
 spacemacs_confinit: ""
 spacemacs_confuser: ""
+
+dockerCompose: false

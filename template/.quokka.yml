@@ -8,6 +8,11 @@ variables:
     variables:
       languageDeps:
         required: false
+  dockerCompose:
+    confirm: false
+    variables:
+      volumes:
+        required: false
   dotbashrc:
     confirm: false
     variables:

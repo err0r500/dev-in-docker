@@ -39,3 +39,5 @@ spacemacs_confuser: |
                     (setq go-format-before-save t)
                     (setq gofmt-command "goimports")
                     (add-hook 'after-save-hook #'go-install)
+
+dockerCompose: false

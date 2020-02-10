@@ -24,3 +24,5 @@ spacemacs_funcs: ""
 spacemacs_addpackages: "" 
 spacemacs_confinit: ""
 spacemacs_confuser: (setq omnisharp-server-executable-path "/usr/local/bin/omniserver/run") 
+
+dockerCompose: false
