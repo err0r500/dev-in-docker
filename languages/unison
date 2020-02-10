@@ -1,0 +1,16 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN wget -O unison.tar.gz  https://github.com/unisonweb/unison/releases/download/release%2FM1h/unison-linux64.tar.gz
+                         RUN tar -xzf unison.tar.gz
+                         RUN mv ucm /usr/local/bin
+                         RUN dnf install ncurses-compat-libs -y
+dotbashrc: true 
+dotbashrc_content: "" 
+runMeFirst: false
+spacemacs: true
+spacemacs_conflayers: "auto-completion"
+spacemacs_funcs: ""
+spacemacs_addpackages: ""
+spacemacs_confinit: ""
+spacemacs_confuser: ""
+dockerCompose: false
