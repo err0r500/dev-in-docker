@@ -1,0 +1,20 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN dnf install racket -y 
+dotbashrc: true 
+dotbashrc_content: "" 
+runMeFirst: false
+spacemacs: true
+spacemacs_conflayers: "auto-completion"
+spacemacs_funcs: ""
+spacemacs_addpackages: |
+                       racket-mode
+                       elisp-format
+spacemacs_confinit: ""
+spacemacs_confuser: |
+                    (add-hook 'racket-mode-hook #'auto-complete-mode)
+                    (add-hook 'racket-mode-hook 
+                      (lambda () 
+                         (add-hook 'after-save-hook 'elisp-format-buffer nil 'local)))
+
+dockerCompose: false
