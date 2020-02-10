@@ -11,4 +11,4 @@ services:
       - TERM=${TERM} # keep host's TERM, optional 
     volumes:
       - ./home:/home/${USER_NAME}:Z # Z is because of SELinux
-      - ~/.ssh:/home/${USER_NAME}/.ssh:ro,Z # read-only 
+      - /home/${USER_NAME}/.ssh:/home/${USER_NAME}/.ssh:ro,Z # read-only 
