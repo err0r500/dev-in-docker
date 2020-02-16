@@ -1,3 +1,7 @@
+---
+if: spacemacs
+---
+
 {{ .spacemacs_funcs }}
 
 (defun dotspacemacs/layers ()

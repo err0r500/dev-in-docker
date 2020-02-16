@@ -3,7 +3,7 @@
 # get the directory of this script not to be dependant upon where it's invoked from
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-if [ ! -d "$DIR/home/.emacs.d" ]; then
+if [ ! -d "$DIR/home/.emacs.d" ] && {{ .spacemacs }} ; then
     echo "== FIRST RUN ONLY =="
     # clone the develop branch directly
     git clone -b develop https://github.com/syl20bnr/spacemacs $DIR/home/.emacs.d

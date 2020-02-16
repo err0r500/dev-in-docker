@@ -25,14 +25,20 @@ variables:
         required: false
   spacemacs:
     confirm: false
+    required: true
     variables:
       conflayers:
-        required: false
+        required: true
+        default: ""
       addpackages:
-        required: false
+        required: true
+        default: ""
       funcs:
-        required: false
+        required: true
+        default: ""
       confinit:
-        required: false
+        required: true
+        default: ""
       confuser:
-        required: false
+        required: true
+        default: ""
