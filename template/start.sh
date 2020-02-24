@@ -11,11 +11,11 @@ if [ ! -d "$DIR/home/.emacs.d" ] && {{ .spacemacs }} ; then
     {{ .runMeFirst_content }}
 fi
 
-if id -nG "$USER" | grep -qw "docker"; then
-    systemct start docker
+f id -nG "$USER" | grep -qw "docker"; then
+    systemctl start docker
     USER_NAME=${USER} USER_ID=${UID} docker-compose up -d --build
 elif id -nG "$USER" | grep -qw "wheel"; then
-    sudo systemct start docker
+    sudo systemctl start docker
     sudo USER_NAME=${USER} USER_ID=${UID} docker-compose up -d --build
 else
     echo "not in docker nor wheel group... can't start docker-compose"
