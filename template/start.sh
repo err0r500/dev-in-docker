@@ -11,7 +11,7 @@ if [ ! -d "$DIR/home/.emacs.d" ] && {{ .spacemacs }} ; then
     {{ .runMeFirst_content }}
 fi
 
-f id -nG "$USER" | grep -qw "docker"; then
+if id -nG "$USER" | grep -qw "docker"; then
     systemctl start docker
     USER_NAME=${USER} USER_ID=${UID} docker-compose up -d --build
 elif id -nG "$USER" | grep -qw "wheel"; then
