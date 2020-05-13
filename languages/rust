@@ -9,7 +9,8 @@ dotbashrc_content: |
                       source $HOME/.cargo/env
                       rustup toolchain add nightly
                       cargo +nightly install racer
-                      rm ./keep && rm ./run_installer
+                      rustup component add rust-src
+                      rm ./keep && rm ./rust_installer
                    fi
  
 runMeFirst: false
@@ -23,5 +24,8 @@ spacemacs_confuser: |
                           (concat (string-trim
                                   (shell-command-to-string "rustc --print sysroot"))
                                   "/lib/rustlib/src/rust/src"))
+                     (add-hook 'rust-mode-hook #'racer-mode)
+                     (add-hook 'racer-mode-hook #'eldoc-mode)
+                     (add-hook 'racer-mode-hook #'company-mode))
 
 dockerCompose: false
