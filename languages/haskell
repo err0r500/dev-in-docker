@@ -1,16 +1,19 @@
 dockerfile: true
 dockerfile_languageDeps: |
                          RUN dnf install ncurses-devel -y
+                         RUN dnf install haskell-platform -y
                          RUN wget -qO- https://get.haskellstack.org/ | sh
 
 dotbashrc: true
 dotbashrc_content : |
-                     export PATH=$PATH:~/.local/bin
+                     export PATH=$PATH:~/.local/bin:~/.cabal/bin
                      if [ -e ~/keep ]; then
                      echo " == The main tools are installed on first run, it may be long == "
                      echo
-                     stack install apply-refact hlint stylish-haskell hasktags hoogle hindent
                      rm ~/keep
+                     cabal update
+                     #cabal install cabal-install
+                     cabal install hlint stylish-haskell hasktags hoogle hindent brittany --reorder-goals
                      fi
 
 runMeFirst: true
@@ -18,13 +21,16 @@ runMeFirst_content: ""
 
 spacemacs: true
 spacemacs_conflayers: |
-                      (haskell :variables haskell-enable-hindent-style "johan-tibell")
-                      (auto-completion
-                        (haskell :variables haskell-completion-backend 'intero))
-                      syntax-checking
-spacemacs_addpackages: "" 
+                      auto-completion
+                      (haskell :variables haskell-completion-backend 'ghci)
+spacemacs_addpackages: "dante" 
 spacemacs_funcs: ""
 spacemacs_confinit: ""
-spacemacs_confuser: (add-hook 'haskell-mode-hook 'intero-mode)
+spacemacs_confuser: |
+                    (add-hook 'haskell-mode-hook (lambda ()  (setq tab-width 2)))
+                    (add-hook 'haskell-mode-hook 'dante-mode)
+                    (add-hook 'haskell-mode-hook 'flycheck-mode)
+                    (add-hook 'haskell-mode-hook 'company-mode)
+                    (setq haskell-mode-stylish-haskell-path "brittany")
 
 dockerCompose: false

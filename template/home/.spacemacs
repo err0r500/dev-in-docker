@@ -13,7 +13,7 @@ if: spacemacs
    dotspacemacs-configuration-layers '(
      helm
      emacs-lisp
-     neotree
+     treemacs
      {{ .spacemacs_conflayers }}
    )
    dotspacemacs-additional-packages '(
@@ -31,6 +31,7 @@ if: spacemacs
    dotspacemacs-check-for-update nil
    dotspacemacs-elpa-subdirectory nil
    dotspacemacs-editing-style 'vim
+   dotspacemacs-mode-line-theme 'spacemacs
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner 'official
    dotspacemacs-startup-lists '((recents . 5)
