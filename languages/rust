@@ -1,0 +1,27 @@
+dockerfile: true
+dockerfile_languageDeps: RUN dnf install gcc -y 
+dotbashrc: true
+dotbashrc_content: |
+                   PATH=$HOME/.cargo/bin:$PATH
+                   if [ -f "./keep" ]; then
+                      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o ./rust_installer
+                      sh ./rust_installer -y
+                      source $HOME/.cargo/env
+                      rustup toolchain add nightly
+                      cargo +nightly install racer
+                      rm ./keep && rm ./run_installer
+                   fi
+ 
+runMeFirst: false
+spacemacs: true
+spacemacs_conflayers: (rust :variables rust-backend 'racer)
+spacemacs_addpackages: "" 
+spacemacs_funcs: ""
+spacemacs_confinit: ""
+spacemacs_confuser: |
+                    (setq racer-rust-src-path
+                          (concat (string-trim
+                                  (shell-command-to-string "rustc --print sysroot"))
+                                  "/lib/rustlib/src/rust/src"))
+
+dockerCompose: false
