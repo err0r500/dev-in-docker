@@ -1,0 +1,27 @@
+dockerfile: true
+dockerfile_languageDeps: |
+                         RUN dnf install opam findutils -y
+
+dotbashrc: true
+dotbashrc_content : |
+                    if [ -e ~/keep ]; then
+                        echo "== coq 8.11.2 will now be installed =="
+                        echo
+                        opam init -a --disable-sandboxing
+                        eval $(opam env)
+                        opam pin add coq 8.11.2 -y
+                        opam repo add coq-released https://coq.inria.fr/opam/released
+                        rm ~/keep
+                    fi
+
+
+runMeFirst: false
+spacemacs: true
+spacemacs_conflayers: |
+                      coq
+spacemacs_addpackages: "" 
+spacemacs_funcs: ""
+spacemacs_confinit: ""
+spacemacs_confuser: ""
+
+dockerCompose: false
