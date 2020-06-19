@@ -32,7 +32,7 @@ chmod +x ./start.sh
 ./start.sh
 ```
 
-NB : the docker daemon must be running, the `start.sh` script just launches a docker-compose
+NB : if you the docker daemon is not running, it will be started for you. You'll be prompted to enter your password if need root privileges to start it.
 
 #### Example with Idris
 
