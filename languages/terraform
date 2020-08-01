@@ -1,6 +1,6 @@
 dockerfile: true
 dockerfile_languageDeps: |
-                         RUN wget -O ./terraform.zip https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip
+                         RUN wget -O ./terraform.zip https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12.29_linux_amd64.zip
                          RUN dnf install unzip -y && unzip ./terraform.zip -d /usr/bin/ && rm ./terraform.zip
                           
 dotbashrc: true
